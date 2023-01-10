@@ -1,2 +1,2 @@
-# petalinux
-開發板OS安裝
+# download
+https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html
