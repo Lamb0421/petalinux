@@ -1,0 +1,56 @@
+chmod 777 petalinux-v2022.1-04191534-installer.run
+./petalinux-v2022.1-04191534-installer.run --dir ~/Desktop/petalinux/2022.1
+source ~/Desktop/petalinux/2022.1/settings.sh
+
+cd ~/Desktop/petalinux_project/2022.1/
+petalinux-create -t project --name KV260 --template zynqMP
+cd KV260/
+petalinux-config --get-hw-description=. 
+DTG Setting ---> MACHINE_NAME ---> zynqmp-smk-k26-reva 
+Yocto Setting ---> YOCTO_MACHINE_NAME ---> xilinx-k26-kv
+Image Packaging Configuration ---> root filesystem type ---> EXT4(SD/emmc/SATA/USB)
+Device node of SD device ---> /dev/mmcblk1p2
+dtc -I dtb -O dts images/u-boot.dtb
+----tree config----
+petalinux-config -c kernel
+petalinux-build
+cd images/linux/
+petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit
+
+umount /dev/sdd*
+
+sudo mkfs.ext4 -L rootfs /dev/sdd2
+sudo cp rootfs.cpio /media/demo/rootfs
+sudo pax -rvf rootfs.cpio
+
+sudo gzip -d rootfs.cpio.gz
+sudo cpio -idm < rootfs.cpio
+
+tftp dgram udp wait nobody /usr/sbin/tcpd/ /usr/sbin/in.tftpd /tftproot
+sole=ttyPS0,115200 clk_ignore_unused root=/dev/mmcblk1p2 rw rootwait
+
+
+IMAGE_FSTYPES_remove = "cpio cpio.gz cpio.bz2 cpio.xz cpio.lzma cpio.lz4 cpio.gz.u-boot"
+IMAGE_FSTYPES_DEBUGFS_remove = "cpio cpio.gz cpio.bz2 cpio.xz cpio.lzma cpio.lz4 cpio.gz.u-boot"
+dtc -I dtb -O dts -o system.dts system.dtb
+
+----tree config----
+/include/ "system-conf.dtsi"
+/ {
+	chosen {
+                bootargs = "earlycon console=ttyPS1,115200 clk_ignore_unused root=/dev/mmcblk1p2 rw init_fatal_sh=1 cma=1000M ";
+                stdout-path = "serial1:115200n8";
+        };
+};
+
+&sdhci1 { /* FIXME - on CC - MIO 39 - 51 */
+	status = "okay";
+	no-1-8-v;
+	disable-wp;
+	broken-cd;
+	xlnx,mio-bank = <1>;
+	/* Do not run SD in HS mode from bootloader */
+	sdhci-caps-mask = <0 0x200000>;
+	sdhci-caps = <0 0>;
+	max-frequency = <19000000>;
+};
