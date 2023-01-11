@@ -1,18 +1,19 @@
 # 目標
-[1. 通過PetaLinux生成以下檔案：](#PetaLinux檔案生成步驟)
-   >BOOT.Bin  
-   >boot.scr  
-   >image.ub  
-   >rootfs.cpio  
+[1. 通過PetaLinux生成以下檔案：](#PetaLinux檔案生成步驟)  
+
+  >BOOT.Bin  
+  >boot.scr  
+  >image.ub  
+  >rootfs.cpio  
    
 [2. 將SD卡分區。](#SD卡分區)  
 [3. 將檔案放入SD卡使KV260能正常開機。](#製作開機SD卡)
 # 開發環境
 PetaLinux：2022.2  
 Vivado：2022.2
-# 事前作業
+# 事前作業  
 1. 請先完成PetaLinux安裝。  
-   筆者將PetaLinux 2022.2 安裝在 ~/Desktop/petalinux/2022.2 底下。
+   筆者將PetaLinux 2022.2 安裝在 ~/Desktop/petalinux/2022.2 底下。  
 2. 通過Vivado生成XSA檔案。  
 3. 創建好放置專案的目錄。  
    筆者將專案集中放在 ~/Desktop/petalinux_project/2022.2 底下。
