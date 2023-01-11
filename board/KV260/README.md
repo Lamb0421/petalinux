@@ -11,17 +11,29 @@ PetaLinux：2022.2
 Vivado：2022.2
 # PetaLinux檔案生成步驟
 ### 執行PetaLinux環境變數  
-source ~/Desktop/petalinux/2022.1/settings.sh  
+```
+source ~/Desktop/petalinux/2022.1/settings.sh 
+```
 ### 移動至專案路徑下  
+```
 cd ~/Desktop/petalinux_project/2022.1/  
+```
 ### 生成Petalinux專案目錄  
+```
 petalinux-create -t project --name Xilinx_KV260 --template zynqMP  
+```
 ### 移動至專案根目錄
+```
 cd Xilinx_KV260/  
+```
 ### 匯入Vivado所產生之XSA檔案  
+```
 petalinux-config --get-hw-description=. --silentconfig  
+```
 ### 開啟PetaLinux設定  
+```
 petalinux-config  
+```
 進行以下更改  
 >DTG Setting ---> MACHINE_NAME ---> zynqmp-smk-k26-reva  
 >Yocto Setting ---> YOCTO_MACHINE_NAME ---> xilinx-k26-kv  
@@ -32,13 +44,21 @@ petalinux-config
 路徑：  
 參考檔案：  
 ### 開啟PetaLinux核心設定  
+```
 petalinux-config -c kernel  
+```
 ### 建置PetaLinux專案  
+```
 petalinux-build  
+```
 ### 移動至檔案位置  
+```
 cd images/linux/  
+```
 ### 生成BOOT.Bin  
+```
 petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force  
+```
 
 ![image](https://user-images.githubusercontent.com/122330661/211705993-41549394-efc3-481e-86e1-090003267f0e.png)
 
