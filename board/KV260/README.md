@@ -76,5 +76,5 @@ cd images/linux/
 ```
 petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force  
 ```
-![image](https://user-images.githubusercontent.com/122330661/211737249-e349fb35-4dc3-44dd-85c3-ad3644dde768.png)
+![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/package.png)
 
