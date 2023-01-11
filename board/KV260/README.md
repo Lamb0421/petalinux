@@ -16,7 +16,7 @@ Vivado：2022.2
 2. 通過Vivado生成XSA檔案。  
 3. 創建好放置專案的目錄。  
    筆者將專案集中放在 ~/Desktop/petalinux_project/2022.2 底下。
-# 1.PetaLinux檔案生成步驟
+# PetaLinux檔案生成步驟
 ### 執行PetaLinux環境變數  
 + 注意：這部分`~/Desktop/petalinux/2022.2`請改為自行安裝之路徑。  
 ```
