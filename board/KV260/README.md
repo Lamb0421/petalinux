@@ -9,12 +9,17 @@
 # 開發環境
 PetaLinux：2022.2  
 Vivado：2022.2
+# 事前作業
+1. 安裝好PetaLinux  
+2. 通過Vivado生成XSA檔案  
+3. 創建好放置專案的目錄  
+   筆者將專案集中放在 ~/Desktop/petalinux_project/2022.1/ 底下
 # PetaLinux檔案生成步驟
 ### 執行PetaLinux環境變數  
 ```
 source ~/Desktop/petalinux/2022.1/settings.sh 
 ```
-### 移動至專案路徑下  
+### 移動至放置專案的路徑下  
 ```
 cd ~/Desktop/petalinux_project/2022.1/  
 ```
