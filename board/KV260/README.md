@@ -50,7 +50,7 @@ petalinux-config
 >Device node of SD device ---> /dev/mmcblk1p2  
 
 ### 更改device-tree  
-路徑：  
+路徑：~/Desktop/petalinux_project/2022.2/KV260/project-spec/meta-user/recipes-bsp/device-tree/files  
 參考檔案：system-user.dtsi  
 ### 開啟PetaLinux核心設定  
 ```
