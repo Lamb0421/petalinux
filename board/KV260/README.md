@@ -1,9 +1,9 @@
 # 目標
 1. 通過PetaLinux生成以下檔案：
->BOOT.Bin  
->boot.scr  
->image.ub  
->rootfs.cpio  
+   >BOOT.Bin  
+   >boot.scr  
+   >image.ub  
+   >rootfs.cpio  
 
 2.   
 3. 並將其放入SD卡使KV260能正常開機。
