@@ -10,6 +10,7 @@
 PetaLinux：2022.2  
 Vivado：2022.2
 # PetaLinux檔案生成步驟
+source ~/Desktop/petalinux/2022.1/settings.sh  
 移動至專案路徑下  
 cd ~/Desktop/petalinux_project/2022.1/  
 生成Petalinux專案  
