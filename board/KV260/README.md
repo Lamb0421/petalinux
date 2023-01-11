@@ -51,7 +51,7 @@ petalinux-config
 
 ### 更改device-tree  
 路徑：  
-參考檔案：  
+參考檔案：system-user.dtsi  
 ### 開啟PetaLinux核心設定  
 ```
 petalinux-config -c kernel  
