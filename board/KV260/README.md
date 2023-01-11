@@ -5,8 +5,8 @@
    >image.ub  
    >rootfs.cpio  
    
-2. 將SD卡分區。  
-3. 將檔案放入SD卡使KV260能正常開機。
+[2. 將SD卡分區。](#SD卡分區)
+[3. 將檔案放入SD卡使KV260能正常開機。](#製作開機SD卡)
 # 開發環境
 PetaLinux：2022.2  
 Vivado：2022.2
@@ -80,4 +80,5 @@ cd images/linux/
 petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force  
 ```
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/package.png)
-# 2.SD卡分區
+# SD卡分區
+# 製作開機SD卡
