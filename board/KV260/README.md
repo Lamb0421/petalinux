@@ -34,10 +34,9 @@ petalinux-create -t project --name Xilinx_KV260 --template zynqMP
 ```
 cd Xilinx_KV260/  
 ```
-### 將XSA檔案放入專案底下
-將檔案放入該專案的根目錄。  
+### 將XSA檔案放入專案底下  
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/XSA.png)  
-### 匯入Vivado所產生之XSA檔案  
+### 匯入XSA檔案
 ```
 petalinux-config --get-hw-description=. --silentconfig  
 ```
@@ -56,6 +55,9 @@ petalinux-config
 ```
 petalinux-config -c kernel  
 ```
+會跳出一個新視窗，可以看到核心版本。  
+暫不做更改，Exit離開。
+![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/kernel.png)
 ### 建置PetaLinux專案  
 ```
 petalinux-build  
