@@ -20,6 +20,7 @@ Vivado：2022.2
 ```
 source ~/Desktop/petalinux/2022.2/settings.sh 
 ```
+![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/source.png)
 ### 移動至放置專案的路徑下  
 ```
 cd ~/Desktop/petalinux_project/2022.2/  
@@ -28,12 +29,14 @@ cd ~/Desktop/petalinux_project/2022.2/
 ```
 petalinux-create -t project --name Xilinx_KV260 --template zynqMP  
 ```
+![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/create.png)
 ### 移動至專案根目錄
 ```
 cd Xilinx_KV260/  
 ```
 ### 將XSA檔案放入專案底下
-
+將檔案放入該專案的根目錄。  
+![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/XSA.png)  
 ### 匯入Vivado所產生之XSA檔案  
 ```
 petalinux-config --get-hw-description=. --silentconfig  
@@ -42,9 +45,7 @@ petalinux-config --get-hw-description=. --silentconfig
 ```
 petalinux-config  
 ```
-進行以下更改  
->DTG Setting ---> MACHINE_NAME ---> zynqmp-smk-k26-reva  
->Yocto Setting ---> YOCTO_MACHINE_NAME ---> xilinx-k26-kv  
+進行以下更改   
 >Image Packaging Configuration ---> root filesystem type ---> EXT4(SD/emmc/SATA/USB)  
 >Device node of SD device ---> /dev/mmcblk1p2  
 
