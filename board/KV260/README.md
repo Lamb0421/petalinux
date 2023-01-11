@@ -1,6 +1,19 @@
-#2022.2
-cd ~/Desktop/petalinux_project/2022.1/
-petalinux-create -t project --name Xilinx_KV260 --template zynqMP
+# 目標
+通過PetaLinux生成以下檔案：
+>BOOT.Bin  
+>boot.scr  
+>image.ub  
+>rootfs.cpio  
+
+並將其放入SD卡使KV260能正常開機。  
+# 開發環境
+PetaLinux：2022.2  
+Vivado：2022.2
+# PetaLinux檔案生成步驟
+移動至專案路徑下  
+cd ~/Desktop/petalinux_project/2022.1/  
+生成Petalinux專案  
+petalinux-create -t project --name Xilinx_KV260 --template zynqMP  
 cd KV260/
 petalinux-config --get-hw-description=. --silentconfig
 petalinux-config
