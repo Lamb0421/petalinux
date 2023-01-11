@@ -1,4 +1,41 @@
 #2022.2
+cd ~/Desktop/petalinux_project/2022.1/
+petalinux-create -t project --name Xilinx_KV260 --template zynqMP
+cd KV260/
+petalinux-config --get-hw-description=. --silentconfig
+petalinux-config
+DTG Setting ---> MACHINE_NAME ---> zynqmp-smk-k26-reva 
+Yocto Setting ---> YOCTO_MACHINE_NAME ---> xilinx-k26-kv
+Image Packaging Configuration ---> root filesystem type ---> EXT4(SD/emmc/SATA/USB)
+Device node of SD device ---> /dev/mmcblk1p2
+
+----tree config----
+petalinux-config -c kernel
+petalinux-build
+cd images/linux/
+petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force
+
+
+----tree config----
+/include/ "system-conf.dtsi"
+/ {
+	chosen {
+                bootargs = "earlycon console=ttyPS1,115200 clk_ignore_unused root=/dev/mmcblk1p2 rw init_fatal_sh=1 cma=1000M ";
+                stdout-path = "serial1:115200n8";
+        };
+};
+
+&sdhci1 { /* FIXME - on CC - MIO 39 - 51 */
+	status = "okay";
+	no-1-8-v;
+	disable-wp;
+	broken-cd;
+	xlnx,mio-bank = <1>;
+	/* Do not run SD in HS mode from bootloader */
+	sdhci-caps-mask = <0 0x200000>;
+	sdhci-caps = <0 0>;
+	max-frequency = <19000000>;
+};
 
 ![image](https://user-images.githubusercontent.com/122330661/211705993-41549394-efc3-481e-86e1-090003267f0e.png)
 
