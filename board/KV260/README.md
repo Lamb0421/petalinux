@@ -11,7 +11,7 @@
 PetaLinux：2022.2  
 Vivado：2022.2
 # 事前作業
-1. 安裝好PetaLinux。  
+1. 請先完成PetaLinux安裝。  
 2. 通過Vivado生成XSA檔案。  
 3. 創建好放置專案的目錄。  
    筆者將專案集中放在 ~/Desktop/petalinux_project/2022.2/ 底下。
@@ -40,6 +40,8 @@ cd Xilinx_KV260/
 ```
 petalinux-config --get-hw-description=. --silentconfig  
 ```
+有找到XSA並成功匯入專案
+![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/config.png)
 ### 開啟PetaLinux設定  
 ```
 petalinux-config  
