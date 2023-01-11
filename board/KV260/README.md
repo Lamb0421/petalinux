@@ -4,40 +4,42 @@
    >boot.scr  
    >image.ub  
    >rootfs.cpio  
-
-2.   
-3. 並將其放入SD卡使KV260能正常開機。
+   
+2. 將SD卡分區。  
+3. 將檔案放入SD卡使KV260能正常開機。
 # 開發環境
 PetaLinux：2022.2  
 Vivado：2022.2
 # 事前作業
-1. 安裝好PetaLinux  
-2. 通過Vivado生成XSA檔案  
-3. 創建好放置專案的目錄  
-   筆者將專案集中放在 ~/Desktop/petalinux_project/2022.2/ 底下
+1. 安裝好PetaLinux。  
+2. 通過Vivado生成XSA檔案。  
+3. 創建好放置專案的目錄。  
+   筆者將專案集中放在 ~/Desktop/petalinux_project/2022.2/ 底下。
 # PetaLinux檔案生成步驟
 ### 執行PetaLinux環境變數  
-```Bash
+```
 source ~/Desktop/petalinux/2022.2/settings.sh 
 ```
 ### 移動至放置專案的路徑下  
-```Bash
+```
 cd ~/Desktop/petalinux_project/2022.2/  
 ```
 ### 生成Petalinux專案目錄  
-```Bash
+```
 petalinux-create -t project --name Xilinx_KV260 --template zynqMP  
 ```
 ### 移動至專案根目錄
-```Bash
+```
 cd Xilinx_KV260/  
 ```
+### 將XSA檔案放入專案底下
+
 ### 匯入Vivado所產生之XSA檔案  
-```Bash
+```
 petalinux-config --get-hw-description=. --silentconfig  
 ```
 ### 開啟PetaLinux設定  
-```Bash
+```
 petalinux-config  
 ```
 進行以下更改  
@@ -50,19 +52,19 @@ petalinux-config
 路徑：  
 參考檔案：  
 ### 開啟PetaLinux核心設定  
-```Bash
+```
 petalinux-config -c kernel  
 ```
 ### 建置PetaLinux專案  
-```Bash
+```
 petalinux-build  
 ```
 ### 移動至檔案位置  
-```Bash
+```
 cd images/linux/  
 ```
 ### 生成BOOT.Bin  
-```Bash
+```
 petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force  
 ```
 
