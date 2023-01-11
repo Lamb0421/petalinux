@@ -1,5 +1,5 @@
 # 目標
-[1. 通過PetaLinux生成以下檔案：](#1.PetaLinux檔案生成步驟)
+[1. 通過PetaLinux生成以下檔案：](#開發環境)
    >BOOT.Bin  
    >boot.scr  
    >image.ub  
