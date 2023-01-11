@@ -63,6 +63,11 @@ petalinux-config -c kernel
 ```
 petalinux-build  
 ```
+此時已經生成以下3個檔案在 images/linux 底下。 
+   >boot.scr  
+   >image.ub  
+   >rootfs.cpio  
+
 ### 移動至檔案位置  
 ```
 cd images/linux/  
