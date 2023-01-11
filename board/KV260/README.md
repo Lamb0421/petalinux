@@ -40,8 +40,7 @@ cd Xilinx_KV260/
 ```
 petalinux-config --get-hw-description=. --silentconfig  
 ```
-有找到XSA並成功匯入專案
-![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/config.png)
+![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/config-xsa.png)
 ### 開啟PetaLinux設定  
 ```
 petalinux-config  
