@@ -138,12 +138,15 @@ sudo cp BOOT.bin /media/demo/boot
 ```
 sudo cp rootfs.cpio /media/demo/rootfs
 ```
+### 解壓縮rootfs.cpio
 ```
 sudo cpio -idm < rootfs.cpio
 ```
+### 刪除rootfs.cpio
 ```
 sudo rm rootfs.cpio
 ```
+### 複製檔案到rootfs分區
 ```
 cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
 ```
