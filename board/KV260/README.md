@@ -29,26 +29,29 @@ $ source ~/Desktop/petalinux/2022.2/settings.sh
 ```
 $ cd ~/Desktop/petalinux_project/2022.2  
 ```
-### 生成Petalinux專案目錄  
-+ -t  
-+ --name  
-+ --template  
+### 生成Petalinux專案目錄 
++ -t：專案類型。  
++ --name：專案名稱。   
++ --template：CPU架構。 
 ```
 $ petalinux-create -t project --name Xilinx_KV260 --template zynqMP  
-```
+``` 
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/create.png)
 ### 移動至專案根目錄
++ 注意：如有自行命名專案名稱，這部分`Xilinx_KV260`請改為自定義名稱。  
 ```
 $ cd Xilinx_KV260/  
 ```
 ### 將XSA檔案放入專案底下  
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/XSA.png)  
 ### 匯入XSA檔案
++ --get-hw-description=：XSA檔案路徑。  
++ --silentconfig：跳過自定義介面。  
 ```
 $ petalinux-config --get-hw-description=. --silentconfig  
 ```
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/config-xsa.png)
-### 開啟PetaLinux設定  
+### 配置PetaLinux設定  
 ```
 $ petalinux-config  
 ```
@@ -82,6 +85,7 @@ device-tree檔案路徑：`~/Desktop/petalinux_project/2022.2/KV260/project-spec
 };
 ```
 ### 開啟PetaLinux核心設定  
++ -c：配置指定系統。  
 ```
 $ petalinux-config -c kernel  
 ```
