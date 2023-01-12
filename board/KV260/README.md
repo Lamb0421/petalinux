@@ -30,6 +30,9 @@ $ source ~/Desktop/petalinux/2022.2/settings.sh
 $ cd ~/Desktop/petalinux_project/2022.2  
 ```
 ### 生成Petalinux專案目錄  
++ -t  
++ --name  
++ --template  
 ```
 $ petalinux-create -t project --name Xilinx_KV260 --template zynqMP  
 ```
