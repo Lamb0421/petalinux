@@ -132,9 +132,18 @@ cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
 ```
 ### 複製檔案到boot分區
 ```
-sudo cp BOOT.bin
+sudo cp BOOT.bin /media/demo/boot
 ```
-### 複製檔案到boot分區
+### 複製檔案到rootfs分區
+```
+sudo cp rootfs.cpio /media/demo/rootfs
+```
+```
+sudo cpio -idm < rootfs.cpio
+```
+```
+sudo rm rootfs.cpio
+```
 ```
 cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
 ```
