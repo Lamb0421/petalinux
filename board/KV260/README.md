@@ -21,7 +21,7 @@ Vivado：2022.2
 ### 執行PetaLinux環境變數  
 + 注意：這部分`~/Desktop/petalinux/2022.2`請改為自行安裝之路徑。  
 ```
-$ source ~/Desktop/petalinux/2022.2/settings.sh 
+source ~/Desktop/petalinux/2022.2/settings.sh
 ```
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/source.png)
 ### 移動至放置專案的路徑下  
@@ -58,6 +58,8 @@ petalinux-config
 進行以下更改   
 + Image Packaging Configuration ---> root filesystem type ---> EXT4(SD/emmc/SATA/USB)  
 + Image Packaging Configuration ---> Device node of SD device ---> /dev/mmcblk1p2  
++ DTG Setting ---> MACHINE_NAME ---> zynqmp-smk-k26-reva
++ Yocto Setting ---> YOCTO_MACHINE_NAME ---> xilinx-k26-kv
 
 ### 更改device-tree  
 將路徑底下之`system-user.dtsi`改成參考檔案內文  
