@@ -27,20 +27,20 @@ $ source ~/Desktop/petalinux/2022.2/settings.sh
 ### 移動至放置專案的路徑下  
 + 注意：這部分`~/Desktop/petalinux_project/2022.2`請改為自行創建之路徑。  
 ```
-$ cd ~/Desktop/petalinux_project/2022.2  
+cd ~/Desktop/petalinux_project/2022.2
 ```
 ### 生成Petalinux專案目錄 
 + -t：專案類型。  
 + --name：專案名稱。   
 + --template：CPU架構。 
 ```
-$ petalinux-create -t project --name Xilinx_KV260 --template zynqMP  
+petalinux-create -t project --name Xilinx_KV260 --template zynqMP
 ``` 
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/create.png)
 ### 移動至專案根目錄
 + 注意：如有自行命名專案名稱，這部分`Xilinx_KV260`請改為自定義名稱。  
 ```
-$ cd Xilinx_KV260/  
+cd Xilinx_KV260/
 ```
 ### 將XSA檔案放入專案底下  
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/XSA.png)  
@@ -48,12 +48,12 @@ $ cd Xilinx_KV260/
 + --get-hw-description=：XSA檔案路徑。  
 + --silentconfig：跳過自定義介面。  
 ```
-$ petalinux-config --get-hw-description=. --silentconfig  
+petalinux-config --get-hw-description=. --silentconfig
 ```
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/config-xsa.png)
 ### 配置PetaLinux設定  
 ```
-$ petalinux-config  
+petalinux-config
 ```
 進行以下更改   
 + Image Packaging Configuration ---> root filesystem type ---> EXT4(SD/emmc/SATA/USB)  
@@ -87,14 +87,14 @@ device-tree檔案路徑：`~/Desktop/petalinux_project/2022.2/KV260/project-spec
 ### 開啟PetaLinux核心設定  
 + -c：配置指定系統。  
 ```
-$ petalinux-config -c kernel  
+petalinux-config -c kernel
 ```
 會跳出一個新視窗，可以看到核心版本。  
 暫不做更改，Exit離開。
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/kernel.png)
 ### 建置PetaLinux專案  
 ```
-$ petalinux-build  
+petalinux-build
 ```
 此時已經生成以下3個檔案在 images/linux 底下。 
    >boot.scr  
@@ -103,25 +103,25 @@ $ petalinux-build
 
 ### 移動至檔案位置  
 ```
-$ cd images/linux/  
+cd images/linux/
 ```
 ### 生成BOOT.Bin  
 ```
-$ petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force  
+petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force
 ```
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/package.png)
 # SD卡分區
 ### 查看SD卡位置
 ```
-$ lsblk
+lsblk
 ```
 ### 解除掛載
 ```
-$ umount /dev/sdd*
+umount /dev/sdd*
 ```
 ### 開啟fdisk
 ```
-$ sudo fdisk /dev/sdd
+sudo fdisk /dev/sdd
 ```
 ### 刪除所有分區
 
@@ -129,8 +129,8 @@ $ sudo fdisk /dev/sdd
 
 ### SD卡格式化
 ```
-$ sudo mkfs.vfat -F 32 -n boot /dev/sdd1
-$ sudo mkfs.ext4 -L rootfs /dev/sdd2
+sudo mkfs.vfat -F 32 -n boot /dev/sdd1
+sudo mkfs.ext4 -L rootfs /dev/sdd2
 ```
 # 製作開機SD卡
 ### 移動至專案路徑
@@ -139,21 +139,21 @@ $ cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
 ```
 ### 複製檔案到boot分區
 ```
-$ sudo cp BOOT.bin /media/demo/boot
+sudo cp BOOT.bin /media/demo/boot
 ```
 ### 複製檔案到rootfs分區
 ```
-$ sudo cp rootfs.cpio /media/demo/rootfs
+sudo cp rootfs.cpio /media/demo/rootfs
 ```
 ### 解壓縮rootfs.cpio
 ```
-$ sudo cpio -idm < rootfs.cpio
+sudo cpio -idm < rootfs.cpio
 ```
 ### 刪除rootfs.cpio
 ```
-$ sudo rm rootfs.cpio
+sudo rm rootfs.cpio
 ```
 ### 複製檔案到rootfs分區
 ```
-$ cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
+cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
 ```
