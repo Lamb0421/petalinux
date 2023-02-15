@@ -34,7 +34,7 @@ cd ~/Desktop/petalinux_project/2022.2
 + --name：專案名稱。   
 + --template：CPU架構。 
 ```
-petalinux-create -t project --name Xilinx_KV260 --template zynqMP
+petalinux-create -t project --template zynqMP --name Xilinx_KV260 
 ``` 
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/create.png)
 ### 移動至專案根目錄
