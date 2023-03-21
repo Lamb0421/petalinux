@@ -145,11 +145,11 @@ sudo cp BOOT.bin /media/demo/boot
 ```
 ### 複製檔案到rootfs分區
 ```
-sudo cp rootfs.cpio /media/demo/rootfs
+sudo cp rootfs.tar.gz /media/demo/rootfs
 ```
-### 解壓縮rootfs.cpio
+### 解壓縮rootfs.tar.gz 
 ```
-sudo cpio -idm < rootfs.cpio
+sudo tar zxvf rootfs.tar.gz 
 ```
 ### 刪除rootfs.cpio
 ```
