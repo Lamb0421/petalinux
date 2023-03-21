@@ -151,9 +151,9 @@ sudo cp rootfs.tar.gz /media/demo/rootfs
 ```
 sudo tar zxvf rootfs.tar.gz 
 ```
-### 刪除rootfs.cpio
+### 刪除rootfs.tar.gz 
 ```
-sudo rm rootfs.cpio
+sudo rm rootfs.tar.gz 
 ```
 ### 複製檔案到rootfs分區
 ```
