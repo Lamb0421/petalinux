@@ -119,11 +119,11 @@ lsblk
 ```
 ### 解除掛載
 ```
-umount /dev/sdd*
+umount /dev/sdc*
 ```
 ### 開啟fdisk
 ```
-sudo fdisk /dev/sdd
+sudo fdisk /dev/sdc
 ```
 ### 刪除所有分區
 
@@ -131,8 +131,8 @@ sudo fdisk /dev/sdd
 
 ### SD卡格式化
 ```
-sudo mkfs.vfat -F 32 -n boot /dev/sdd1
-sudo mkfs.ext4 -L rootfs /dev/sdd2
+sudo mkfs.vfat -F 32 -n boot /dev/sdc1
+sudo mkfs.ext4 -L rootfs /dev/sdc2
 ```
 # 製作開機SD卡
 ### 移動至專案路徑
