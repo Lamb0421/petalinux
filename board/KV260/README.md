@@ -153,7 +153,7 @@ sudo cp rootfs.tar.gz /media/demo/rootfs
 ```
 sudo tar zxvf rootfs.tar.gz 
 ```
-### 刪除rootfs.tar.gz 
+### 刪除rootfs.tar.gz (可不做)
 ```
 sudo rm rootfs.tar.gz 
 ```
