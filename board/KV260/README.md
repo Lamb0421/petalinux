@@ -142,6 +142,8 @@ $ cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
 ### 複製檔案到boot分區
 ```
 sudo cp BOOT.bin /media/demo/boot
+sudo cp boot.scr /media/demo/boot
+sudo cp image.ub /media/demo/boot
 ```
 ### 複製檔案到rootfs分區
 ```
@@ -155,7 +157,4 @@ sudo tar zxvf rootfs.tar.gz
 ```
 sudo rm rootfs.tar.gz 
 ```
-### 複製檔案到rootfs分區
-```
-cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
-```
+
