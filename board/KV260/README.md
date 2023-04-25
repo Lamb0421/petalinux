@@ -137,7 +137,7 @@ sudo mkfs.ext4 -L rootfs /dev/sdc2
 # 製作開機SD卡
 ### 移動至專案路徑
 ```
-$ cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
+cd ~/Desktop/petalinux_project/2022.2/Xilinx_KV260/images/linux
 ```
 ### 複製檔案到boot分區
 ```
@@ -148,6 +148,10 @@ sudo cp image.ub /media/demo/boot
 ### 複製檔案到rootfs分區
 ```
 sudo cp rootfs.tar.gz /media/demo/rootfs
+```
+### 移動至rootfs
+```
+cd /media/demo/rootfs
 ```
 ### 解壓縮rootfs.tar.gz 
 ```
