@@ -55,9 +55,7 @@ petalinux-config --get-hw-description=. --silentconfig
 ```
 petalinux-config
 ```
-進行以下更改   
-+ Image Packaging Configuration ---> root filesystem type ---> EXT4(SD/emmc/SATA/USB)  
-+ Image Packaging Configuration ---> Device node of SD device ---> /dev/mmcblk1p2  
+進行以下更改     
 + DTG Setting ---> MACHINE_NAME ---> zynqmp-smk-k26-reva
 + Yocto Setting ---> YOCTO_MACHINE_NAME ---> xilinx-k26-kv
 
