@@ -1,19 +1,86 @@
 /include/ "system-conf.dtsi"
-/ {
-	chosen {
-                bootargs = "earlycon console=ttyPS1,115200 clk_ignore_unused root=/dev/mmcblk1p2 rw init_fatal_sh=1 cma=1000M ";
-                stdout-path = "serial1:115200n8";
-        };
+
+&amba {
+	clk_150M: 5P49V6965_0 { /* u17 */
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <150000000>;
+	};
+
+	clk_26M: 5P49V6965_1 { /* u17 */
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <26000000>;
+	};
+
+	clk_27M: 5P49V6965_2 { /* u17 */
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <27000000>;
+	};
 };
 
-&sdhci1 { /* FIXME - on CC - MIO 39 - 51 */
+/* DP/USB 3.0 */
+&psgtr {
 	status = "okay";
+	clocks = <&clk_150M>, <&clk_27M>, <&clk_26M>;
+	clock-names = "ref0", "ref1", "ref2";
+};
+
+&zynqmp_dpsub {
+	status = "okay";
+};
+
+
+&pinctrl0 { /* required by spec */
+        pinctrl_usb0_default: usb0-default {
+		mux {
+			groups = "usb0_0_grp";
+			function = "usb0";
+		};
+		
+		conf {
+			groups = "usb0_0_grp";
+			slew-rate = <1>;
+			io-standard = <1>;
+		};
+		
+		conf-rx {
+			pins = "MIO52", "MIO53", "MIO55";
+			bias-high-impedence;
+		};
+		
+		conf-tx {
+			pins = "MIO54", "MIO56", "MIO57", "MIO58", "MIO59", "MIO60", "MIO61", "MIO62", "MIO63";
+			bias-disable;
+		};
+		
+	};
+};
+/{
+	usb_phy0: usb_phy@0 {
+		compatible = "ulpi-phy";
+		#phy-cells = <0>;
+		reg = <0xe0002000 0x1000>;
+		view-port = <0x0170>;
+		drv-vbus;
+	};
+};
+
+&usb0 {
+	dr_mode = "host";
+	status = "okay";
+	usb-phy = <&usb_phy0>;
+};
+
+&dwc3_0 {
+	dr_mode = "host";
+	snps,usb3_lpm_capable;
+	phy-names = "usb3-phy";
+	maximum-speed = "super-speed";
+};
+
+&sdhci1 {
+	disable-wp; 
 	no-1-8-v;
-	disable-wp;
-	broken-cd;
-	xlnx,mio-bank = <1>;
-	/* Do not run SD in HS mode from bootloader */
-	sdhci-caps-mask = <0 0x200000>;
-	sdhci-caps = <0 0>;
-	max-frequency = <19000000>;
 };
