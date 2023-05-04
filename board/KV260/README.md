@@ -69,29 +69,46 @@ device-tree檔案路徑：`~/Desktop/petalinux_project/2022.2/KV260/project-spec
 /include/ "system-conf.dtsi"
 
 &amba {
-	clk_150M: 5P49V6965_0 { /* u17 */
+	si5332_0: si5332_0 { /* u17 */
 		compatible = "fixed-clock";
 		#clock-cells = <0>;
-		clock-frequency = <150000000>;
+		clock-frequency = <125000000>;
 	};
 
-	clk_26M: 5P49V6965_1 { /* u17 */
+	si5332_1: si5332_1 { /* u17 */
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <25000000>;
+	};
+
+	si5332_2: si5332_2 { /* u17 */
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <48000000>;
+	};
+
+	si5332_3: si5332_3 { /* u17 */
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <24000000>;
+	};
+
+	si5332_4: si5332_4 { /* u17 */
 		compatible = "fixed-clock";
 		#clock-cells = <0>;
 		clock-frequency = <26000000>;
 	};
 
-	clk_27M: 5P49V6965_2 { /* u17 */
+	si5332_5: si5332_5 { /* u17 */
 		compatible = "fixed-clock";
 		#clock-cells = <0>;
 		clock-frequency = <27000000>;
 	};
 };
 
-/* DP/USB 3.0 */
 &psgtr {
 	status = "okay";
-	clocks = <&clk_150M>, <&clk_27M>, <&clk_26M>;
+	clocks = <&si5332_5>, <&si5332_4>, <&si5332_0>;
 	clock-names = "ref0", "ref1", "ref2";
 };
 
