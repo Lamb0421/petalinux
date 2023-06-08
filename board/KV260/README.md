@@ -195,22 +195,32 @@ petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmuf
 ```
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/package.png)
 # SD卡分區
-### 查看SD卡位置
+### 查看SD卡位置  
++ 找到SD卡路徑。  
 ```
 lsblk
 ```
-### 解除掛載
+### 解除掛載  
++ 注意：這部分`/dev/sdc`請改為當下SD卡路徑。  
 ```
 umount /dev/sdc*
 ```
 ### 開啟fdisk
++ 注意：這部分`/dev/sdc`請改為當下SD卡路徑。  
 ```
 sudo fdisk /dev/sdc
 ```
-### 刪除所有分區
-
+fdisk 用法如下：
++ p 查看分區  
++ d 刪除分區  
++ n 新增分區  
++ w 儲存  
++ q 離開  
 ### 建立分區
-
+建立2個分區，步驟如下： 
++ 刪除分區： d ---> `Enter` ---> `Enter` ---> `Enter` ---> `Enter`
++ 建立第一分區： n ---> `Enter` --->   +1G   ---> `Enter` ---> `Enter`
++ 建立第二分區： n ---> `Enter` ---> `Enter` ---> `Enter` ---> `Enter`
 ### SD卡格式化
 ```
 sudo mkfs.vfat -F 32 -n boot /dev/sdc1
