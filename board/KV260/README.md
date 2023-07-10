@@ -218,8 +218,8 @@ fdisk 用法如下：
 + q 離開  
 ### 建立分區
 建立2個分區，步驟如下： 
-+ 刪除分區： d ---> `Enter` ---> `Enter` ---> `Enter` ---> `Enter`
-+ 建立第一分區： n ---> `Enter` --->   +1G   ---> `Enter` ---> `Enter`
++ 刪除分區： d ---> `Enter` ---> `Enter` 
++ 建立第一分區： n ---> `Enter` ---> `Enter` ---> `Enter` ---> +1G
 + 建立第二分區： n ---> `Enter` ---> `Enter` ---> `Enter` ---> `Enter`
 ### SD卡格式化
 ```
