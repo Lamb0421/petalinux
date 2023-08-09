@@ -1,4 +1,4 @@
-#安裝petalinux 2022.2
+# 安裝petalinux 2022.2
 ### 下載網址
 https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html
 ### 安裝必要包
