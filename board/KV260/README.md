@@ -192,6 +192,9 @@ cd images/linux/
 ### 生成BOOT.Bin  
 ```
 petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force
+
+versal:
+petalinux-package boot --format BIN --plm --psmfw --u-boot --dtb --force
 ```
 ![image](https://github.com/Lamb0421/petalinux/blob/main/board/KV260/Iamge/package.png)
 # SD卡分區
